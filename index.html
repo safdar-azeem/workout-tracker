@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+    <link rel="stylesheet" href="./bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
+
+    <link defer rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <script defer src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+
+    <style>
+        .history {
+
+            min-height: 85vh;
+            max-height: 85vh;
+            overflow-x: auto;
+        }
+
+        .history::-webkit-scrollbar {
+            width: 5px;
+            background-color: transparent;
+        }
+
+        .history::-webkit-scrollbar-thumb {
+            border-radius: 35px;
+            background-color: #b9bdc1;
+            -webkit-border-radius: 35px;
+            -moz-border-radius: 35px;
+            -ms-border-radius: 35px;
+            -o-border-radius: 35px;
+        }
+
+        .box {
+            border-left-style: solid;
+            border-left-color: rgb(0, 0, 0);
+            border-left-width: 7px;
+            /* border-left: ; */
+        }
+
+        .leaflet-popup-content-wrapper,
+        .leaflet-popup-tip {
+            background-color: black;
+            color: white;
+            padding: 0.1rem 0.2rem !important;
+            border-radius: 5px;
+            font-size: 15px;
+        }
+
+        .running-popup .leaflet-popup-content-wrapper {
+            border-left: 7px solid rgb(65, 192, 6);
+        }
+
+        .cycling-popup .leaflet-popup-content-wrapper {
+            border-left: 7px solid rgb(192, 6, 6);
+        }
+    </style>
+
+</head>
+
+<body class="">
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-5 bg-white h-100vh "
+                style="z-index: 122;    border-radius: 0px 40px 40px 0px;box-shadow: 4px 0px 40px #00000038;">
+                <div class="mt-9 px-6 ">
+                    <div class="between-center">
+                        <h3 class="fw-bold">History</h3>
+                        <h4 class="cursor-pointer clearHistory">Clear</h4>
+
+                    </div>
+                    <div class="history pe-2">
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="h-100vh position-absolute w-100" style="z-index: 22;" id="map">
+
+            </div>
+        </div>
+
+    </div>
+
+    </div>
+
+
+
+    <!--  -->
+
+
+
+    <!-- Modal -->
+    <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog ">
+            <div class="modal-content bg-dark">
+                <div class="modal-header">
+                    <h5 class="modal-title text-white " id="exampleModalLabel">Save Your History</h5>
+                    <button type="button" class="btn-close bg-white " style="opacity: 0.9;" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="" class=" py-4 px-6 rounded-1 form">
+
+                        <div class="between-center">
+
+                            <div>
+                                <select class="form-select bg-white inputType" aria-label="Default select example">
+
+                                    <option value="running">running</option>
+                                    <option value="cycling">cycling</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <input type="text" class="form-control inputDistance bg-white" placeholder="Distance">
+                            </div>
+
+
+                        </div>
+                        <div class="between-center mt-3">
+
+                            <div class="form-row">
+                                <input type="text" class="form-control inputDurration bg-white" placeholder="Durration">
+                            </div>
+
+                            <div class="form-row">
+                                <input type="text" class="form-control inputcadence bg-white"
+                                    placeholder="cadence (Step/min)">
+                            </div>
+
+                            <div class="form-row d-none">
+                                <input type="text" class="form-control inputElevation bg-white"
+                                    placeholder="Elevation (meters)">
+                            </div>
+
+                            <input type='submit' class="d-none" name="" id="">
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <script src="./app.js"></script>
+</body>
+
+</html>
